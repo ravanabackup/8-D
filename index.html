@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Animation</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+    }
+    #animatedText {
+      font-size: calc(10vw + 10vh);
+      font-family: monospace;
+      white-space: nowrap;
+      animation: textAnimation 3s infinite;
+    }
+    @keyframes textAnimation {
+      0%   { content: "8=✊===D"; }
+      12.5% { content: "8==✊==D"; }
+      25%  { content: "8===✊=D"; }
+      37.5% { content: "8====✊D"; }
+      50%  { content: "8===✊=D"; }
+      62.5% { content: "8==✊==D"; }
+      75%  { content: "8=✊===D"; }
+      87.5% { content: "8====✊D💦"; }
+      100% { content: "8==✊==D💦💦"; }
+    }
+  </style>
+</head>
+<body>
+  <div id="animatedText">8=✊===D</div>
+  <script>
+    const textElement = document.getElementById('animatedText');
+    const frames = [
+      "8=✊===D",
+      "8==✊==D",
+      "8===✊=D",
+      "8====✊D",
+      "8===✊=D",
+      "8==✊==D",
+      "8=✊===D",
+      "8====✊D💦",
+      "8==✊==D💦💦"
+    ];
+    let index = 0;
+
+    setInterval(() => {
+      textElement.textContent = frames[index];
+      index = (index + 1) % frames.length;
+    }, 250);
+  </script>
+</body>
+</html>
